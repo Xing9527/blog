@@ -10,8 +10,8 @@ router.get('/', function(req, res, next) {
             console.log(err);
             return;
         }
-        console.log("连接成功")
-        const db = client.db('myblog');
+        // console.log("连接成功")
+        const db = client.db('xing');
         const posts = db.collection('posts');
         posts.find().toArray((err,data)=>{
             if(err){

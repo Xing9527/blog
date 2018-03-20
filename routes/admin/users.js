@@ -17,7 +17,7 @@ router.post('/exist',(req,res)=>{
       console.log(err);
       return;
     }
-    const db = client.db('myblog');
+    const db = client.db('xing');
     const users = db.collection('users');
     users.find({username:username,pwd:pwd}).toArray((err,docs)=>{
       console.log(docs)

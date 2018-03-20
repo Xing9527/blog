@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
             console.log(err);
             return;
         }
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const posts = db.collection('posts');
         posts.find({_id:ObjectId(id)}).toArray((err,data)=>{
             if(err){

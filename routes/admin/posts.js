@@ -7,7 +7,7 @@ const DB_STR = "mongodb://localhost:27017";
 /* GET home page. */
 router.get('/', function(req, res, next) {
     mongoClient.connect(DB_STR,(err,client)=>{
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const posts = db.collection('posts');
         posts.find().toArray((err,data)=>{
             if(err){
@@ -27,7 +27,7 @@ router.get('/add',(req,res)=>{
             return;
         }
         // console.log("链接成功");
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const cats = db.collection('cats');
         cats.find().toArray((err,data)=>{
             res.render('admin/article_add',{data:data});
@@ -54,7 +54,7 @@ router.post('/add',(req,res)=>{
             return;
         }
         // console.log("链接成功");
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const posts = db.collection('posts');
 
         posts.insert(post,(err)=>{
@@ -76,7 +76,7 @@ router.get('/del',(req,res)=>{
             console.log(err);
             return;
         }
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const posts = db.collection('posts');
         posts.remove({_id:ObjectId(id)},(err)=>{
             if(err){

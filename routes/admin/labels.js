@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
             console.log(err);
             return;
         }
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const labels = db.collection('labels');
         labels.find().toArray((err,data)=>{
             if(err) {
@@ -37,7 +37,7 @@ router.post('/add',(req,res)=>{
             return
         }
         // console.log("链接成功");
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const labels = db.collection('labels');
         labels.insert({label:label,time:time},(err)=>{
             if(err){
@@ -58,7 +58,7 @@ router.get('/del',(req,res)=>{
             console.log(err);
             return;
         }
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const labels = db.collection('labels');
         labels.remove({_id:ObjectId(id)},(err)=>{
             if(err){

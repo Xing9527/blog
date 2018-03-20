@@ -11,7 +11,7 @@ router.get('/',(req,res)=>{
             return;
         }
         console.log("链接成功");
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const cats = db.collection('cats');
         cats.find().toArray((err,docs)=>{
             // console.log(docs)
@@ -32,7 +32,7 @@ router.post('/add',(req,res)=>{
             return
         }
         console.log("链接成功")
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const cats = db.collection('cats');
         cats.insert({title:title,sort:sort},(error)=>{
             if(error){
@@ -54,7 +54,7 @@ router.get('/edit',(req,res)=>{
             return;
         }
         console.log("链接成功");
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const cats = db.collection('cats');
         cats.find({_id:ObjectId(id)}).toArray((err,docs)=>{
             // console.log(docs);
@@ -74,7 +74,7 @@ router.post('/edit',(req,res)=>{
             return;
         }
         console.log("链接成功");
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const cats = db.collection('cats');
         cats.update({_id:ObjectId(id)},{$set:{title:title,sort:sort}},(error)=>{
             if(error){
@@ -95,7 +95,7 @@ router.get('/del',(req,res)=>{
             return;
         }
         console.log("链接成功");
-        const db = client.db('myblog');
+        const db = client.db('xing');
         const cats = db.collection('cats');
         cats.remove({_id:ObjectId(id)},(error)=>{
             if(error){
