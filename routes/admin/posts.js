@@ -76,7 +76,7 @@ router.get('/del',(req,res)=>{
             console.log(err);
             return;
         }
-        const db = client.db('xing')
+        const db = client.db('xing');
         const posts = db.collection('posts');
         posts.remove({_id:ObjectId(id)},(err)=>{
             if(err){
